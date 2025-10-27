@@ -1,0 +1,323 @@
+/* =========================================
+   0. IMPORTAÇÃO DE FONTE
+   ========================================= */
+   @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+   /* =========================================
+      1. ESTILOS GLOBAIS E RESET
+      ========================================= */
+   * {
+       margin: 0;
+       padding: 0;
+       box-sizing: border-box; 
+   }
+   
+   body {
+       font-family: 'Roboto', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+       line-height: 1.6;
+       background-color: #fcfcfc; /* Um branco levemente mais suave */
+       color: #333;
+   }
+   
+   a {
+       color: #D95F00; /* Laranja mais escuro para links */
+       text-decoration: none; 
+   }
+   
+   a:hover {
+       text-decoration: underline; 
+   }
+   
+   img {
+       max-width: 100%;
+       height: auto;
+       vertical-align: middle; 
+   }
+   
+   /* =========================================
+      2. CABEÇALHO (HEADER)
+      ========================================= */
+   
+   header {
+       background-color: #ffffff;
+       padding: 20px 40px;
+       border-bottom: 1px solid #e0e0e0;
+       display: flex;
+       flex-wrap: wrap; 
+       justify-content: space-between;
+       align-items: center;
+       gap: 20px; 
+   }
+   
+   /* --- 2.1 Logo --- */
+   header > a[title="Inicio da pagina"] {
+       flex-shrink: 0; 
+   }
+   
+   /* --- 2.2 Bloco de Busca (O primeiro <div>) --- */
+   header > div:nth-of-type(1) {
+       display: flex;
+       flex-grow: 1; 
+       max-width: 450px;
+   }
+   
+   header > div:nth-of-type(1) input[type="search"] {
+       width: 100%;
+       padding: 10px 15px;
+       font-size: 1rem;
+       border: 1px solid #ccc;
+       border-radius: 4px 0 0 4px;
+       border-right: none;
+       background-color: #f9f9f9;
+   }
+   
+   header > div:nth-of-type(1) input[type="search"]:focus {
+       outline: none;
+       border-color: #F28C28; /* Foco em laranja */
+       background-color: #fff;
+   }
+   
+   header > div:nth-of-type(1) button {
+       padding: 10px 15px;
+       font-size: 1rem;
+       border: 1px solid #ccc;
+       background-color: #f0f0f0;
+       cursor: pointer;
+       border-radius: 0 4px 4px 0;
+   }
+   
+   header > div:nth-of-type(1) button:hover {
+       background-color: #e0e0e0;
+   }
+   
+   /* --- 2.3 Bloco de Ações do Usuário (O segundo <div>) --- */
+   header > div:nth-of-type(2) {
+       display: flex;
+       align-items: center;
+       gap: 25px; 
+   }
+   
+   header > div:nth-of-type(2) a {
+       display: flex;
+       align-items: center;
+       gap: 8px; 
+       color: #555;
+       font-size: 0.9rem;
+       font-weight: 500;
+   }
+   
+   header > div:nth-of-type(2) a:hover {
+       color: #D95F00; /* Destaque laranja no hover */
+       text-decoration: none;
+   }
+   
+   /* --- 2.4 Carrinho (Badge) --- */
+   a[title="Ver carrinho de compras"] {
+       position: relative; 
+   }
+   
+   a[title="Ver carrinho de compras"] span {
+       position: absolute;
+       top: -8px;
+       right: -12px;
+       background-color: #e63946; /* Vermelho é padrão para notificações */
+       color: white;
+       border-radius: 50%;
+       width: 18px;
+       height: 18px;
+       font-size: 0.75rem;
+       font-weight: bold;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       line-height: 1;
+   }
+   
+   /* --- 2.5 Barra de Navegação (Categorias) --- */
+   nav {
+       width: 100%; 
+       background-color: #fff;
+       border-top: 1px solid #f0f0f0;
+       border-bottom: 1px solid #f0f0f0;
+       margin-top: 15px; 
+   }
+   
+   nav ul {
+       list-style: none;
+       display: flex;
+       justify-content: center;
+       padding: 10px 0;
+       gap: 40px; 
+   }
+   
+   nav a {
+       color: #333;
+       font-weight: 500; /* Peso médio para a fonte */
+       padding: 10px 5px;
+       font-size: 1rem;
+       text-transform: uppercase; /* Deixa o menu em maiúsculas */
+       letter-spacing: 0.5px; /* Leve espaçamento */
+   }
+   
+   nav a:hover {
+       color: #F28C28; /* Laranja principal no hover */
+       text-decoration: none;
+   }
+   
+   /* =========================================
+      3. CONTEÚDO PRINCIPAL (MAIN)
+      ========================================= */
+   
+   main {
+       max-width: 1100px;
+       margin: 40px auto;
+       padding: 30px 40px; /* Mais padding lateral */
+       background-color: #ffffff;
+       border-radius: 8px;
+       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+   }
+   
+   /* =========================================
+      4. SEÇÃO DO PRODUTO
+      ========================================= */
+   
+   /* --- 4.1 Títulos e Cabeçalho do Produto --- */
+   section h2 {
+       font-size: 2.1rem;
+       font-weight: 700;
+       margin-bottom: 10px;
+   }
+   
+   /* Link "Ver Descrição" */
+   section a[href="#AncoraParaDescriçãoCompleta"] {
+       font-size: 0.9rem;
+       font-weight: 500;
+       display: inline-block;
+       margin-bottom: 25px;
+   }
+   
+   /* --- 4.2 Galeria de Imagens --- */
+   figure {
+       text-align: center; 
+       margin-bottom: 30px;
+   }
+   
+   /* Imagem principal */
+   figure > img[width="500"] {
+       width: 100%; 
+       max-width: 500px;
+       height: auto;
+       border: 1px solid #eee;
+       border-radius: 8px;
+       margin-top: 15px;
+   }
+   
+   /* Container das miniaturas */
+   figure > div {
+       display: flex;
+       justify-content: center;
+       gap: 10px;
+   }
+   
+   /* Miniaturas */
+   figure > div img {
+       width: 80px;
+       height: 80px;
+       border: 2px solid #ddd;
+       border-radius: 4px;
+       cursor: pointer;
+       transition: all 0.2s ease;
+   }
+   
+   figure > div img:hover {
+       border-color: #F28C28; /* Borda laranja no hover */
+       transform: scale(1.05); /* Leve zoom */
+   }
+   
+   /* Legenda da imagem */
+   figcaption {
+       font-size: 0.85rem;
+       color: #888;
+       font-style: italic;
+       margin-top: 10px;
+   }
+   
+   /* --- 4.3 Preço e Compra --- */
+   
+   /* Preço atual (R$ 23,90) */
+   p strong {
+       font-size: 2.5rem;
+       font-weight: 700;
+       color: #2a9d8f; /* Verde para o preço (bom contraste) */
+   }
+   
+   /* Preço antigo (R$29,00) */
+   p s {
+       font-size: 1.2rem;
+       color: #999;
+       margin-left: 10px;
+   }
+   
+   /* Botão "Adicionar à sacola" */
+   button[type="button"] {
+       display: block;
+       width: 100%;
+       max-width: 350px;
+       padding: 15px 20px;
+       margin: 20px 0 30px 0;
+       font-size: 1.2rem;
+       font-weight: bold;
+       color: #ffffff;
+       background-color: #F28C28; /* Cor principal Laranja */
+       border: none;
+       border-radius: 5px;
+       cursor: pointer;
+       transition: all 0.2s ease;
+   }
+   
+   button[type="button"]:hover {
+       background-color: #D95F00; /* Laranja mais escuro no hover */
+       transform: translateY(-2px); /* Efeito de "levantar" */
+       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+   }
+   
+   /* --- 4.4 Descrição e Detalhes --- */
+   
+   /* Títulos "Descrição do produto" e "Quantidade Diaria" */
+   section h3 {
+       font-size: 1.5rem;
+       font-weight: 700;
+       margin-top: 30px;
+       padding-bottom: 5px;
+       border-bottom: 2px solid #f0f0f0; /* Linha de ênfase abaixo do título */
+   }
+   
+   /* Parágrafos de descrição e quantidade */
+   section p {
+       font-size: 1rem;
+       color: #444;
+       line-height: 1.7;
+       margin-top: 15px;
+   }
+   
+   /* Linha horizontal */
+   section hr {
+       border: 0;
+       border-top: 1px solid #eee;
+       margin: 25px 0;
+   }
+   
+   /* Estiliza os <strong> dentro do <p> de Quantidade */
+   p strong {
+       font-size: 2rem; /* Reseta o tamanho do strong do preço */
+       font-weight: 700;
+       color: #111;
+       display: inline-block; 
+       min-width: 120px;
+   }
+
+   p s {
+    font-size: 1.2rem;
+    color: #999;
+    margin-left: 0px; /* <-- ADICIONE ESTA LINHA */
+}
