@@ -1,323 +1,312 @@
-/* === CONFIGURAÇÕES GLOBAIS (ESTILO "CLEAN") === */
+/* === CONFIGURAÇÕES GLOBAIS === */
 
-/* Cores da Marca */
 :root {
-    --cor-amarelo: #FFB703;
-    --cor-azul: #219EBC;
-    --cor-texto: #333333;
-    --cor-fundo: #FFFFFF;
-    --cor-borda: #EEEEEE;
-    --cor-texto-claro: #777777;
-  }
-  
-  /* Reset Básico e Fontes */
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  html {
-    scroll-behavior: smooth; /* Para a rolagem suave dos links da nav */
-  }
-  
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    background-color: var(--cor-fundo);
-    color: var(--cor-texto);
-    line-height: 1.6;
-  }
-  
-  /* Configurações de container principais */
-  header, main, footer {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  /* Estilos de links e listas */
-  a {
-    text-decoration: none;
-    color: inherit;
-    transition: color 0.3s ease;
-  }
-  
-  ul {
-    list-style: none;
-  }
-  
-  img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-  }
-  
-  button {
-    cursor: pointer;
-    font-family: inherit;
-  }
-  
-  hr {
-    border: 0;
-    border-top: 1px solid var(--cor-borda);
-    margin: 20px 0;
-  }
-  
-  /* === 1. CABEÇALHO (HEADER) === */
-  
-  header {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-    border-bottom: 2px solid var(--cor-borda);
-    padding-bottom: 20px;
-  }
-  
+  --cor-amarelo: #FFB703;
+  --cor-azul: #219EBC;
+  --cor-texto: #333333;
+  --cor-fundo: #FFFFFF;
+  --cor-borda: #EEEEEE;
+  --cor-texto-claro: #777777;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  line-height: 1.6;
+}
+
+header, main, footer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--cor-borda);
+  margin: 20px 0;
+}
+
+/* === 1. CABEÇALHO (HEADER) === */
+
+header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  border-bottom: 2px solid var(--cor-borda);
+  padding-bottom: 20px;
+
   /* Logo */
-  header > a:first-child {
-    flex-shrink: 0; /* Impede que o logo encolha */
+  & > a:first-child {
+    flex-shrink: 0;
   }
-  
+
   /* Barra de Busca (div 1) */
-  header > div:nth-of-type(1) {
+  & > div:nth-of-type(1) {
     display: flex;
-    flex-grow: 1; /* Faz a busca ocupar o espaço disponível */
-    max-width: 500px; /* Limite máximo */
+    flex-grow: 1;
+    max-width: 500px;
+
+    input[type="search"] {
+      width: 100%;
+      border: 1px solid #CCC;
+      padding: 10px 15px;
+      font-size: 1em;
+      border-radius: 6px 0 0 6px;
+      border-right: none;
+    }
+
+    button {
+      border: none;
+      background-color: var(--cor-azul);
+      padding: 0 15px;
+      border-radius: 0 6px 6px 0;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #1a7c94;
+      }
+
+      img {
+        filter: brightness(0) invert(1);
+        width: 20px;
+      }
+    }
   }
-  
-  header > div:nth-of-type(1) input[type="search"] {
-    width: 100%;
-    border: 1px solid #CCC;
-    padding: 10px 15px;
-    font-size: 1em;
-    border-radius: 6px 0 0 6px;
-    border-right: none;
-  }
-  
-  header > div:nth-of-type(1) button {
-    border: none;
-    background-color: var(--cor-azul); /* Cor da marca */
-    padding: 0 15px;
-    border-radius: 0 6px 6px 0;
-    transition: background-color 0.3s ease;
-  }
-  
-  header > div:nth-of-type(1) button:hover {
-    background-color: #1a7c94; /* Tom mais escuro do azul */
-  }
-  
-  /* Inverte a cor da imagem da lupa (se for preta) para branco */
-  header > div:nth-of-type(1) button img {
-    filter: brightness(0) invert(1);
-    width: 20px; /* Garante o tamanho */
-  }
-  
+
   /* Ações do Usuário (div 2) */
-  header > div:nth-of-type(2) {
+  & > div:nth-of-type(2) {
     display: flex;
     gap: 25px;
     align-items: center;
+
+    a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9em;
+      font-weight: 500;
+
+      &:hover {
+        color: var(--cor-amarelo);
+      }
+    }
+
+    img {
+      width: 25px;
+    }
   }
-  
-  header > div:nth-of-type(2) a {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.9em;
-    font-weight: 500;
-  }
-  
-  /* Destaque amarelo no hover */
-  header > div:nth-of-type(2) a:hover {
-    color: var(--cor-amarelo);
-  }
-  
-  header > div:nth-of-type(2) img {
-    width: 25px; /* Garante o tamanho */
-  }
-  
+
   /* Navegação de Categorias */
-  header > nav {
+  & > nav {
     width: 100%;
     margin-top: 15px;
-    background-color: var(--cor-azul); /* Cor da marca */
+    background-color: var(--cor-azul);
     border-radius: 6px;
+
+    ul {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+
+      li a {
+        display: block;
+        padding: 15px 25px;
+        color: var(--cor-fundo);
+        font-weight: bold;
+        transition: background-color 0.3s ease, color 0.3s ease;
+
+        &:hover {
+          background-color: var(--cor-fundo);
+          color: var(--cor-amarelo);
+        }
+      }
+    }
   }
-  
-  header > nav ul {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap; /* Permite quebrar linha em telas pequenas */
-  }
-  
-  header > nav ul li a {
-    display: block;
-    padding: 15px 25px;
-    color: var(--cor-fundo); /* Texto branco */
-    font-weight: bold;
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-  
-  /* Destaque amarelo no hover */
-  header > nav ul li a:hover {
-    background-color: var(--cor-fundo);
-    color: var(--cor-amarelo);
-  }
-  
-  /* === 2. CONTEÚDO PRINCIPAL (MAIN) === */
-  
-  main > section {
-    padding-top: 20px; /* Espaçamento para os links âncora */
-    display: grid;
-    /* Cria um grid responsivo:
-       - auto-fit: cria quantas colunas couberem
-       - minmax(240px, 1fr): cada coluna tem no mínimo 240px e no máximo 1 fração (espaço igual)
-    */
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 25px;
-    margin-bottom: 40px;
-  }
-  
+}
+
+/* === 2. CONTEÚDO PRINCIPAL (MAIN) === */
+
+main > section {
+  padding-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 25px;
+  margin-bottom: 40px;
+
   /* Título da Seção (h2) */
-  main > section h2 {
-    grid-column: 1 / -1; /* Faz o título ocupar todas as colunas do grid */
+  h2 {
+    grid-column: 1 / -1;
     font-size: 1.8em;
     margin-bottom: 10px;
-    border-bottom: 3px solid var(--cor-azul); /* Cor da marca */
+    border-bottom: 3px solid var(--cor-azul);
     padding-bottom: 10px;
-    font-weight: 300; /* Deixa a fonte mais leve */
+    font-weight: 300;
+
+    strong {
+      font-weight: 700;
+      color: var(--cor-texto);
+    }
   }
-  
-  main > section h2 strong {
-    font-weight: 700;
-    color: var(--cor-texto); /* O strong já está no h2, não precisa da cor da marca aqui */
-  }
-  
-  /* Card de Produto (article) */
-  article {
-    border: 1px solid var(--cor-borda);
-    border-radius: 8px;
-    padding: 15px;
-    text-align: center;
-    background-color: var(--cor-fundo);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* Garante alinhamento */
-  }
-  
-  article:hover {
+}
+
+/* Card de Produto (article) */
+article {
+  border: 1px solid var(--cor-borda);
+  border-radius: 8px;
+  padding: 15px;
+  text-align: center;
+  background-color: var(--cor-fundo);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &:hover {
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     transform: translateY(-5px);
   }
-  
+
   /* Imagem do Produto */
-  article figure {
+  figure {
     margin-bottom: 15px;
   }
-  
-  article img {
+
+  img {
     width: 190px;
-    height: 190px; /* Deixa as imagens quadradas */
-    object-fit: contain; /* Garante que a imagem caiba sem distorcer */
+    height: 190px;
+    object-fit: contain;
     margin: 0 auto;
   }
-  
+
   /* Título do Produto */
-  article h3 {
+  h3 {
     font-size: 1.1em;
     margin-bottom: 10px;
-    /* Truque para manter os cards alinhados: define altura mínima para o título */
-    min-height: 4.4em; /* Aprox. 3 linhas de texto */
-    color: var(--cor-azul); /* Destaque azul */
+    min-height: 4.4em;
+    color: var(--cor-azul);
   }
-  
+
   /* Preços */
-  article p {
+  p {
     margin-bottom: 15px;
     font-size: 1.1em;
+
+    s { /* Preço antigo (riscado) */
+      font-size: 0.9em;
+      color: var(--cor-texto-claro);
+    }
+
+    strong { /* Preço atual */
+      font-size: 1.4em;
+      color: var(--cor-texto);
+      font-weight: 700;
+    }
   }
-  
-  article p s { /* Preço antigo (riscado) */
-    font-size: 0.9em;
-    color: var(--cor-texto-claro);
-  }
-  
-  article p strong { /* Preço atual */
-    font-size: 1.4em;
-    color: var(--cor-texto);
-    font-weight: 700;
-  }
-  
+
   /* Botão de Adicionar (+) */
-  article button {
-    background-color: var(--cor-amarelo); /* Cor de destaque principal */
-    color: #000; /* Texto preto para legibilidade */
+  button {
+    background-color: var(--cor-amarelo);
+    color: #000;
     border: none;
     border-radius: 50%;
     width: 45px;
     height: 45px;
     font-size: 1.8em;
     font-weight: bold;
-    line-height: 1; /* Alinha o "+" no centro */
-    margin: 0 auto; /* Centraliza o botão */
+    line-height: 1;
+    margin: 0 auto;
     transition: background-color 0.3s ease, transform 0.2s ease;
+
+    &:hover {
+      background-color: #e6a500;
+      transform: scale(1.1);
+    }
+
+    &:active {
+      transform: scale(1.0);
+    }
   }
-  
-  article button:hover {
-    background-color: #e6a500; /* Amarelo mais escuro */
-    transform: scale(1.1);
-  }
-  
-  article button:active {
-    transform: scale(1.0);
-  }
-  
-  /* === 3. RODAPÉ (FOOTER) === */
-  
-  footer {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Responsivo */
-    gap: 30px;
-    background-color: #fcfcfc;
-    border-top: 3px solid var(--cor-azul); /* Borda da marca */
-    padding-top: 40px;
-    padding-bottom: 20px;
-  }
-  
+}
+
+/* === 3. RODAPÉ (FOOTER) === */
+
+footer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  background-color: #fcfcfc;
+  border-top: 3px solid var(--cor-azul);
+  padding-top: 40px;
+  padding-bottom: 20px;
+
   /* Logo no Rodapé */
-  footer > a:first-child {
+  & > a:first-child {
     margin-bottom: 20px;
+
+    img {
+      width: 150px;
+      margin: 0 auto;
+    }
   }
-  
-  footer > a:first-child img {
-    width: 150px;
-    margin: 0 auto; /* Centraliza se o grid tiver 1 coluna */
-  }
-  
+
   /* Seções do Rodapé */
-  footer section h4 {
-    font-size: 1.3em;
-    margin-bottom: 15px;
-    color: var(--cor-azul); /* Cor da marca */
+  section {
+    h4 {
+      font-size: 1.3em;
+      margin-bottom: 15px;
+      color: var(--cor-azul);
+    }
+
+    ul li {
+      margin-bottom: 10px;
+      font-size: 0.95em;
+
+      a:hover {
+        color: var(--cor-amarelo);
+        text-decoration: underline;
+      }
+    }
   }
-  
-  footer section ul li {
-    margin-bottom: 10px;
-    font-size: 0.95em;
-  }
-  
-  footer section ul li a:hover {
-    color: var(--cor-amarelo); /* Destaque amarelo no hover */
-    text-decoration: underline;
-  }
-  
+
   /* Copyright (parágrafo final) */
-  footer > p {
-    grid-column: 1 / -1; /* Ocupa a largura toda */
+  & > p {
+    grid-column: 1 / -1;
     text-align: center;
     margin-top: 30px;
     border-top: 1px solid var(--cor-borda);
@@ -325,80 +314,4 @@
     font-size: 0.9em;
     color: var(--cor-texto-claro);
   }
-  
-  
-  /* === 4. AJUSTES RESPONSIVOS (MOBILE) === */
-  
-  @media (max-width: 768px) {
-    /* Empilha o cabeçalho */
-    header {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    header > div:nth-of-type(1) {
-      order: 2; /* Busca abaixo do logo */
-      width: 100%;
-    }
-    
-    header > div:nth-of-type(2) {
-      order: 1; /* Ações no topo */
-      justify-content: space-around;
-      width: 100%;
-      border-bottom: 1px solid var(--cor-borda);
-      padding-bottom: 15px;
-    }
-  
-    header > nav {
-      order: 3; /* Nav por último */
-      width: 100%;
-    }
-  
-    header > nav ul {
-      flex-direction: column;
-      align-items: center;
-      gap: 5px;
-    }
-    
-    header > nav ul li {
-      width: 100%;
-      text-align: center;
-    }
-    
-    /* Cards de produto em 2 colunas */
-    main > section {
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 15px;
-    }
-    
-    article h3 {
-      min-height: 0; /* Remove a altura mínima no mobile */
-      font-size: 1em;
-    }
-    
-    article img {
-      width: 100%; /* Ocupa o card */
-      height: 150px; /* Altura fixa */
-    }
-  }
-  
-  @media (max-width: 480px) {
-    /* Cards de produto em 1 coluna */
-    main > section {
-      grid-template-columns: 1fr;
-    }
-  
-    main > section h2 {
-      font-size: 1.5em;
-    }
-  
-    /* Centraliza colunas do rodapé */
-    footer {
-      grid-template-columns: 1fr;
-      text-align: center;
-    }
-    
-    footer > a:first-child img {
-      margin: 0 auto;
-    }
-  }
+}
