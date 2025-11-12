@@ -1,4 +1,3 @@
-/* :root define as variáveis de cor para todo o projeto */
 :root {
   --cor-amarelo: #FFB703;
   --cor-azul: #219EBC;
@@ -8,8 +7,7 @@
   --cor-texto-claro: #777777;
 }
 
-
-/* || ESTILOS GERAIS */
+/* estilo geral */
 * {
   margin: 0;
   padding: 0;
@@ -66,8 +64,7 @@ button {
   font-family: inherit;
 }
 
-
-/* || CONTAINER GERAL */
+/* layout principal */
 header,
 main,
 footer {
@@ -77,8 +74,7 @@ footer {
   padding: 1rem;
 }
 
-
-/* || HEADER */
+/* cabeçalho */
 header {
   display: flex;
   flex-wrap: wrap;
@@ -99,7 +95,6 @@ header > a:first-child img {
   height: auto;
 }
 
-/* Barra de Busca */
 header > div:nth-of-type(1) {
   display: flex;
   flex: 1 1 300px;
@@ -125,7 +120,6 @@ header div:nth-of-type(1) button {
   flex-shrink: 0;
 }
 
-/* Links do Usuário */
 header > div:nth-of-type(2) {
   display: flex;
   align-items: center;
@@ -148,7 +142,6 @@ header > div:nth-of-type(2) img {
   flex-shrink: 0;
 }
 
-/* Navegação Principal */
 header nav {
   width: 100%;
   background-color: var(--cor-azul);
@@ -179,8 +172,7 @@ header nav a:hover {
   text-decoration: none;
 }
 
-
-/* || PÁGINA PRINCIPAL - GRID DE PRODUTOS */
+/* produtos da home */
 main section:not(.pagina-produto) {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -235,157 +227,22 @@ main article strong {
   font-weight: bold;
 }
 
+/* botao do card */
 main article button {
   background-color: var(--cor-amarelo);
   color: var(--cor-texto);
   border: none;
-  padding: 0.75rem 1rem;
-  font-weight: bold;
-  font-size: 1rem;
   cursor: pointer;
-  border-radius: 4px;
-  margin-top: 1rem;
-  width: 100%;
+  width: 100px;
+  height: 44px;
+  align-self: center; 
 }
 
 main article button:hover {
   opacity: 0.8;
 }
 
-
-/* || PÁGINA DE PRODUTO - COM CLASSES */
-.pagina-produto {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
-  margin: 2rem 0;
-}
-
-.produto-imagens {
-  width: 100%;
-}
-
-.produto-imagens figure {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.produto-thumbnails {
-  display: flex;
-  gap: 0.5rem;
-  order: 2;
-  flex-wrap: wrap;
-}
-
-.produto-thumbnails img {
-  width: 80px;
-  height: 80px;
-  object-fit: cover;
-  border: 2px solid var(--cor-borda);
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.produto-thumbnails img:hover {
-  border-color: var(--cor-azul);
-}
-
-.produto-imagem-principal {
-  width: 100%;
-  max-width: 500px;
-  height: auto;
-  border: 1px solid var(--cor-borda);
-  border-radius: 4px;
-  padding: 1rem;
-  margin: 0 auto;
-  order: 1;
-}
-
-.produto-imagens figcaption {
-  font-size: 0.875rem;
-  color: var(--cor-texto-claro);
-  text-align: center;
-  margin-top: 0.5rem;
-  order: 3;
-}
-
-.produto-info {
-  width: 100%;
-}
-
-.produto-info h2 {
-  font-size: clamp(1.3rem, 4vw, 1.8rem);
-  margin-bottom: 1rem;
-  line-height: 1.3;
-}
-
-.produto-info > a {
-  display: inline-block;
-  color: var(--cor-azul);
-  font-size: 0.9rem;
-  margin-bottom: 1rem;
-}
-
-.produto-preco {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin: 1.5rem 0;
-  flex-wrap: wrap;
-}
-
-.produto-preco strong {
-  font-size: clamp(1.8rem, 5vw, 2.5rem);
-  color: var(--cor-texto);
-}
-
-.produto-preco s {
-  font-size: clamp(1rem, 3vw, 1.3rem);
-  color: var(--cor-texto-claro);
-}
-
-.produto-info button {
-  background-color: var(--cor-amarelo);
-  color: var(--cor-texto);
-  border: none;
-  padding: 1rem 2rem;
-  font-weight: bold;
-  font-size: clamp(1rem, 3vw, 1.2rem);
-  cursor: pointer;
-  border-radius: 4px;
-  width: 100%;
-  max-width: 400px;
-}
-
-.produto-info button:hover {
-  opacity: 0.85;
-}
-
-.produto-descricao {
-  width: 100%;
-  border-top: 2px solid var(--cor-borda);
-  padding-top: 2rem;
-}
-
-.produto-descricao h3 {
-  margin-top: 1.5rem;
-}
-
-.produto-descricao p {
-  line-height: 1.8;
-  margin: 1rem 0;
-}
-
-.produto-descricao hr {
-  border: none;
-  border-top: 1px solid var(--cor-borda);
-  margin: 2rem 0;
-}
-
-
-/* || PÁGINA DE PRODUTO - SEM CLASSES (GENÉRICO) */
-/* Para páginas de produto que usam apenas divs sem classes */
+/* pagina de produto */
 main > section:only-child {
   display: grid;
   grid-template-columns: 1fr;
@@ -393,14 +250,12 @@ main > section:only-child {
   margin: 2rem 0;
 }
 
-/* Primeiro div - Imagens do produto */
 main > section:only-child > div:first-child figure {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 
-/* Container de thumbnails */
 main > section:only-child > div:first-child figure > div:first-child {
   display: flex;
   gap: 0.5rem;
@@ -421,7 +276,6 @@ main > section:only-child > div:first-child figure > div:first-child img:hover {
   border-color: var(--cor-azul);
 }
 
-/* Imagem principal do produto */
 main > section:only-child > div:first-child figure > img {
   width: 100%;
   max-width: 100%;
@@ -441,7 +295,6 @@ main > section:only-child > div:first-child figcaption {
   order: 3;
 }
 
-/* Segundo div - Informações do produto */
 main > section:only-child > div:nth-child(2) h2 {
   font-size: clamp(1.3rem, 4vw, 1.8rem);
   margin-bottom: 1rem;
@@ -490,7 +343,6 @@ main > section:only-child > div:nth-child(2) button:hover {
   opacity: 0.85;
 }
 
-/* Terceiro div - Descrição do produto */
 main > section:only-child > div:nth-child(3) {
   border-top: 2px solid var(--cor-borda);
   padding-top: 2rem;
@@ -511,8 +363,82 @@ main > section:only-child > div:nth-child(3) hr {
   margin: 2rem 0;
 }
 
+/* pagina de contato */
+header + hr {
+  display: none;
+}
 
-/* || FOOTER */
+main > h2,
+main > p:first-of-type {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+#feedback-form {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  border: 1px solid var(--cor-borda);
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+#feedback-form div {
+  margin-bottom: 1.5rem;
+}
+
+#feedback-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: var(--cor-texto);
+}
+
+#feedback-form input[type="text"],
+#feedback-form input[type="email"],
+#feedback-form input[type="tel"],
+#feedback-form textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  font-family: inherit;
+  border: 1px solid var(--cor-borda);
+  border-radius: 4px;
+  line-height: 1.5;
+  box-sizing: border-box;
+}
+
+#feedback-form textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+#feedback-form button {
+  background-color: var(--cor-amarelo);
+  color: var(--cor-texto);
+  border: none;
+  padding: 1rem 2rem;
+  font-weight: bold;
+  font-size: clamp(1rem, 3vw, 1.2rem);
+  cursor: pointer;
+  border-radius: 4px;
+  width: 100%;
+  max-width: 400px;
+  display: block;
+  margin: 0 auto;
+}
+
+#feedback-form button:hover {
+  opacity: 0.85;
+}
+
+main > hr {
+  border: none;
+  border-top: 1px solid var(--cor-borda);
+  margin-top: 2rem;
+}
+
+/* rodape */
 footer {
   display: flex;
   flex-wrap: wrap;
@@ -555,260 +481,226 @@ footer > p {
   padding-top: 1rem;
 }
 
-
-/* || MEDIA QUERIES - MOBILE FIRST */
-
-/* Tablets e acima (768px+) */
+/* tablet e desktop */
 @media (min-width: 768px) {
-  /* Para páginas com classes */
-  .pagina-produto {
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: auto auto;
-  }
-  
-  .produto-imagens {
-      grid-column: 1 / 2;
-      grid-row: 1 / 2;
-  }
-  
-  .produto-info {
-      grid-column: 2 / 3;
-      grid-row: 1 / 2;
-  }
-  
-  .produto-descricao {
-      grid-column: 1 / -1;
-      grid-row: 2 / 3;
-  }
-  
-  .produto-thumbnails {
-      order: 1;
-      flex-direction: column;
-  }
-  
-  .produto-imagem-principal {
-      order: 2;
-  }
-  
-  /* Para páginas SEM classes (genérico) */
   main > section:only-child {
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: auto auto;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
   }
   
   main > section:only-child > div:first-child {
-      grid-column: 1 / 2;
-      grid-row: 1 / 2;
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
   }
   
   main > section:only-child > div:nth-child(2) {
-      grid-column: 2 / 3;
-      grid-row: 1 / 2;
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
   }
   
   main > section:only-child > div:nth-child(3) {
-      grid-column: 1 / -1;
-      grid-row: 2 / 3;
+    grid-column: 1 / -1;
+    grid-row: 2 / 3;
+  }
+  
+  main > section:only-child > div:first-child figure {
+    flex-direction: row; 
+    align-items: flex-start;
   }
   
   main > section:only-child > div:first-child figure > div:first-child {
-      order: 1;
-      flex-direction: column;
+    order: 1; 
+    flex-direction: column; 
+    flex-basis: 20%;
+    flex-shrink: 0;
+  }
+  
+  main > section:only-child > div:first-child figure > div:first-child img {
+      width: 100%;
+      height: auto;
   }
   
   main > section:only-child > div:first-child figure > img {
-      order: 2;
+    order: 2; 
+    flex-basis: 80%;
+  }
+
+  main > section:only-child > div:first-child figcaption {
+      order: 3;
   }
 }
 
-/* Desktop (1024px+) */
 @media (min-width: 1024px) {
   header,
   main,
   footer {
-      padding: 1.5rem;
+    padding: 1.5rem;
   }
   
   header > a:first-child img {
-      max-width: 200px;
+    max-width: 200px;
   }
   
-  .produto-info button,
   main > section:only-child > div:nth-child(2) button {
-      width: auto;
-      min-width: 300px;
+    width: auto;
+    min-width: 300px;
   }
 }
 
-/* ============================================== */
-/* || Início: Responsividade para Dispositivos Móveis || */
-/* ============================================== */
-
-/* Mobile (até 767px) */
+/* celular */
 @media (max-width: 767px) {
 
-  /* --- AJUSTES DO HEADER --- */
   header {
     flex-direction: row; 
     flex-wrap: wrap;
-    justify-content: center; /* Centraliza os itens no container flex */
+    justify-content: center; 
     align-items: center;
-    padding: 1rem; /* Adiciona um padding geral no header para dar respiro */
+    padding: 1rem; 
   }
 
-  /* 1. Logo (Ordem 1) */
   header > a:first-child {
-    order: 1; /* Define como o primeiro item */
-    width: 100%; /* Ocupa toda a largura para o texto/imagem poder centralizar */
-    text-align: center; /* Centraliza o conteúdo dentro do link (se for imagem, precisa de display: block) */
-    margin: 0 auto 1rem auto; /* Margem inferior para separar do próximo item */
-    display: block; /* Garante que o link se comporte como bloco para text-align funcionar na imagem */
+    order: 1; 
+    width: 100%; 
+    text-align: center; 
+    margin: 0 auto 1rem auto; 
+    display: block; 
   }
   
   header > a:first-child img {
-      margin: 0 auto; /* Centraliza a imagem dentro do link */
-      display: block; /* Garante que a imagem seja um bloco para margin: auto funcionar */
+      margin: 0 auto; 
+      display: block; 
   }
 
-
-  /* 2. Ícones (Ordem 2) */
   header > div:nth-of-type(2) {
-    order: 2; /* Define como o segundo item */
-    width: 100%; /* Ocupa toda a largura */
-    display: flex; /* Transforma em flex container para controlar os ícones */
-    justify-content: center; /* Centraliza os ícones horizontalmente */
-    padding-top: 0.5rem; /* Um pouco de padding para separar do logo */
-    border-top: 1px solid rgba(0,0,0,0.1); /* Adiciona uma linha divisória sutil */
-    gap: 1.5rem; /* Adiciona um espaço maior entre os ícones */
+    order: 2; 
+    width: 100%; 
+    display: flex; 
+    justify-content: center; 
+    padding-top: 0.5rem; 
+    border-top: 1px solid rgba(0,0,0,0.1); 
+    gap: 1.5rem; 
   }
 
-  /* Esconde o texto dos links dos ícones */
   header > div:nth-of-type(2) a span {
     display: none;
   }
 
-  /* 3. Barra de Busca (Ordem 3) */
-  header > div:nth-of-type(1) { /* CUIDADO: Este seletor pode estar incorreto. Se seu HTML for o original, esta é a barra de busca. */
-    order: 3; /* Define como o terceiro item */
+  header > div:nth-of-type(1) {
+    order: 3; 
     width: 100%;
-    max-width: 100%; /* Garante que ocupe toda a largura */
-    margin-top: 1rem; /* Espaço acima da busca */
-    padding: 0 1rem; /* Padding horizontal para não colar nas bordas */
+    max-width: 100%; 
+    margin-top: 1rem; 
+    padding: 0 1rem; 
   }
   
-  header > div:nth-of-type(1) input { /* Ajusta o input da busca */
-      width: calc(100% - 40px); /* Ajusta a largura para caber o botão */
-      padding: 0.75rem; /* Mais padding para um campo maior */
+  header > div:nth-of-type(1) input { 
+      width: calc(100% - 40px); 
+      padding: 0.75rem; 
   }
-  header > div:nth-of-type(1) button { /* Ajusta o botão da busca */
-      width: 40px; /* Largura fixa para o botão */
-      padding: 0.75rem 0; /* Padding vertical */
-      background-color: #f0f0f0; /* Um fundo para o botão */
-      border: 1px solid #ccc; /* Uma borda para o botão */
-      border-left: none; /* Remove borda esquerda para conectar com o input */
+  header > div:nth-of-type(1) button { 
+      width: 40px; 
+      padding: 0.75rem 0; 
+      background-color: #f0f0f0; 
+      border: 1px solid #ccc; 
+      border-left: none; 
   }
 
-
-  /* 4. Navegação Principal (Ordem 4) */
   header nav {
-    order: 4; /* Define como o último item */
-    width: 100%; /* Ocupa toda a largura */
-    margin-top: 1rem; /* Espaço acima do menu */
-    border-top: 1px solid rgba(0,0,0,0.1); /* Linha divisória sutil */
+    order: 4; 
+    width: 100%; 
+    margin-top: 1rem; 
+    border-top: 1px solid rgba(0,0,0,0.1); 
     padding-top: 1rem;
   }
 
   header nav ul {
-    flex-direction: column; /* Empilha os itens do menu */
-    gap: 0.5rem; /* Espaço entre os itens do menu */
+    flex-direction: column; 
+    gap: 0.5rem; 
   }
 
   header nav li {
     width: 100%;
-    text-align: center; /* Centraliza o texto do item de menu */
+    text-align: center; 
   }
 
   header nav a {
     padding: 0.75rem;
-    display: block; /* Para que o padding e text-align funcionem no link todo */
+    display: block; 
   }
   
-  /* --- AJUSTES DO CONTEÚDO PRINCIPAL (MAIN) --- */
   main {
-      padding: 0 1rem; /* Adiciona padding dos lados para centralizar o conteúdo */
-      margin: 0 auto; /* Centraliza o bloco principal */
-      max-width: 100%; /* Garante que não ultrapasse 100% */
+      padding: 0 1rem; 
+      margin: 0 auto; 
+      max-width: 100%; 
   }
 
-  /* Container da galeria de imagens */
   main > section:only-child > div:first-child figure {
-    flex-direction: row; /* Alinha os itens em linha (lado a lado) */
-    align-items: flex-start; /* Alinha no topo */
-    gap: 0.75rem; /* Espaço entre as miniaturas e a imagem principal */
+    flex-direction: column; 
+    align-items: center; 
+    gap: 1rem; 
   }
 
-  /* 1. Miniaturas (Thumbnails) */
   main > section:only-child > div:first-child figure > div:first-child {
-    order: 1; /* Ordem 1 (esquerda) */
-    flex-direction: column; /* Empilha as miniaturas verticalmente */
-    flex-basis: 20%; /* Ocupa 20% da largura */
-    flex-shrink: 0; /* Não encolhe */
+    order: 2; 
+    flex-direction: row; 
+    flex-basis: auto; 
+    flex-shrink: 1;
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 0.5rem; 
+    margin-top: 0.5rem; 
   }
 
-  /* Imagens das miniaturas */
   main > section:only-child > div:first-child figure > div:first-child img {
-    width: 100%; /* Ocupa 100% do container de 20% */
-    height: auto; /* Altura automática */
-    min-width: 50px; /* Largura mínima */
+    width: 60px; 
+    height: 60px; 
+    min-width: 0; 
+    object-fit: cover; 
+    border: 1px solid var(--cor-borda);
+    border-radius: 4px;
   }
 
-  /* 2. Imagem Principal */
   main > section:only-child > div:first-child figure > img {
-    order: 2; /* Ordem 2 (direita) */
-    flex-basis: 80%; /* Ocupa 80% da largura */
-    flex-shrink: 1; /* Permite encolher se necessário */
-    padding: 0.5rem; /* Reduz o padding interno */
+    order: 1; 
+    flex-basis: auto; 
+    flex-shrink: 1;
+    padding: 0; 
+    width: 100%; 
   }
 
-  /* 3. Legenda da Imagem */
   main > section:only-child > div:first-child figcaption {
-    order: 3; /* Ordem 3 (abaixo de tudo) */
-    width: 100%; /* Ocupa toda a largura disponível */
-    text-align: center; /* Centraliza o texto da legenda */
-    margin-top: 0.5rem; /* Espaço acima da legenda */
+    order: 3; 
+    width: 100%; 
+    text-align: center; 
+    margin-top: 0.5rem; 
   }
   
-
-  /* --- AJUSTES DO FOOTER (Rodapé) --- */
   footer {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 1rem; /* Adiciona padding geral no footer */
+    padding: 1rem; 
   }
 
   footer > a:first-child {
     display: flex;
     justify-content: center;
-    margin-bottom: 1rem; /* Espaço abaixo do logo do footer */
+    margin-bottom: 1rem; 
   }
 
   footer > section {
     width: 100%;
-    margin-bottom: 1rem; /* Espaço entre as seções do footer */
+    margin-bottom: 1rem; 
   }
 
   footer > section:last-of-type {
-      margin-bottom: 0; /* Remove margem da última seção */
+      margin-bottom: 0; 
   }
 
-  footer p {
+  footer > p {
       width: 100%;
       margin-top: 1rem;
       border-top: 1px solid rgba(0,0,0,0.1);
       padding-top: 1rem;
   }
 }
-/* ============================================ */
-/* || Fim: Responsividade para Dispositivos Móveis || */
-/* ============================================ */
