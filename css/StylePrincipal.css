@@ -1,5 +1,4 @@
-/* === 0. CONFIGURAÇÕES GLOBAIS === */
-
+/* :root define as variáveis de cor para todo o projeto */
 :root {
   --cor-amarelo: #FFB703;
   --cor-azul: #219EBC;
@@ -9,526 +8,807 @@
   --cor-texto-claro: #777777;
 }
 
+
+/* || ESTILOS GERAIS */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  background-color: var(--cor-fundo);
+  font-family: "Open Sans", Arial, sans-serif;
+  font-size: 16px;
   color: var(--cor-texto);
+  background-color: var(--cor-fundo);
   line-height: 1.6;
 }
 
-header, main, footer {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
+img,
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
 a {
+  color: var(--cor-azul);
   text-decoration: none;
-  color: inherit;
-  transition: color 0.3s ease;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h2 {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  margin-bottom: 0.5em;
+  color: var(--cor-texto);
+}
+
+h3 {
+  font-size: clamp(1.1rem, 3vw, 1.4rem);
+  margin: 1em 0 0.5em;
+  color: var(--cor-texto);
+}
+
+h4 {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  margin-bottom: 0.5em;
+  color: var(--cor-amarelo);
 }
 
 ul {
   list-style: none;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
 button {
-  cursor: pointer;
   font-family: inherit;
 }
 
-hr {
-  border: 0;
-  border-top: 1px solid var(--cor-borda);
-  margin: 20px 0;
+
+/* || CONTAINER GERAL */
+header,
+main,
+footer {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
 }
 
-/* === 1. CABEÇALHO === */
 
+/* || HEADER */
 header {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  gap: 20px;
+  gap: 1rem;
   border-bottom: 2px solid var(--cor-borda);
-  padding-bottom: 20px;
-
-  & > a:first-child {
-    flex-shrink: 0;
-  }
-
-  /* Barra de Busca */
-  & > div:nth-of-type(1) {
-    display: flex;
-    flex-grow: 1;
-    max-width: 500px;
-
-    input[type="search"] {
-      width: 100%;
-      border: 1px solid #CCC;
-      padding: 10px 15px;
-      font-size: 1em;
-      border-radius: 6px 0 0 6px;
-      border-right: none;
-    }
-
-    button {
-      border: none;
-      background-color: var(--cor-azul);
-      padding: 0 15px;
-      border-radius: 0 6px 6px 0;
-      transition: background-color 0.3s ease;
-
-      &:hover {
-        background-color: #1a7c94;
-      }
-
-      img {
-        filter: brightness(0) invert(1);
-        width: 20px;
-      }
-    }
-  }
-
-  /* Ações do Usuário */
-  & > div:nth-of-type(2) {
-    display: flex;
-    gap: 25px;
-    align-items: center;
-
-    a {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.9em;
-      font-weight: 500;
-
-      &:hover {
-        color: var(--cor-amarelo);
-      }
-    }
-
-    img {
-      width: 25px;
-    }
-  }
-
-  /* Navegação */
-  & > nav {
-    width: 100%;
-    margin-top: 15px;
-    background-color: var(--cor-azul);
-    border-radius: 6px;
-
-    ul {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-
-      li a {
-        display: block;
-        padding: 15px 25px;
-        color: var(--cor-fundo);
-        font-weight: bold;
-        transition: background-color 0.3s ease, color 0.3s ease;
-
-        &:hover {
-          background-color: var(--cor-fundo);
-          color: var(--cor-amarelo);
-        }
-      }
-    }
-  }
+  padding-bottom: 1rem;
 }
 
-/* === 2. MAIN - PÁGINA INICIAL (HOME) === */
+header > a:first-child {
+  flex-shrink: 0;
+}
 
-main section[id] {
-  padding-top: 20px;
+header > a:first-child img {
+  width: 100%;
+  max-width: 150px;
+  height: auto;
+}
+
+/* Barra de Busca */
+header > div:nth-of-type(1) {
+  display: flex;
+  flex: 1 1 300px;
+  max-width: 400px;
+  min-width: 200px;
+}
+
+header input[type="search"] {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--cor-borda);
+  border-radius: 4px 0 0 4px;
+  font-size: 1rem;
+}
+
+header div:nth-of-type(1) button {
+  padding: 0.75rem 1rem;
+  border: none;
+  background-color: var(--cor-azul);
+  color: var(--cor-fundo);
+  cursor: pointer;
+  border-radius: 0 4px 4px 0;
+  flex-shrink: 0;
+}
+
+/* Links do Usuário */
+header > div:nth-of-type(2) {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+header > div:nth-of-type(2) a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--cor-texto-claro);
+  white-space: nowrap;
+}
+
+header > div:nth-of-type(2) img {
+  width: 25px;
+  height: 25px;
+  flex-shrink: 0;
+}
+
+/* Navegação Principal */
+header nav {
+  width: 100%;
+  background-color: var(--cor-azul);
+  border-radius: 4px;
+}
+
+header nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+header nav li {
+  flex: 1 1 auto;
+}
+
+header nav a {
+  display: block;
+  padding: 1rem;
+  color: var(--cor-fundo);
+  font-weight: bold;
+  text-align: center;
+}
+
+header nav a:hover {
+  background-color: var(--cor-amarelo);
+  color: var(--cor-texto);
+  text-decoration: none;
+}
+
+
+/* || PÁGINA PRINCIPAL - GRID DE PRODUTOS */
+main section:not(.pagina-produto) {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 25px;
-  margin-bottom: 40px;
-
-  h2 {
-    grid-column: 1 / -1;
-    font-size: 1.8em;
-    margin-bottom: 10px;
-    border-bottom: 3px solid var(--cor-azul);
-    padding-bottom: 10px;
-    font-weight: 300;
-
-    strong {
-      font-weight: 700;
-      color: var(--cor-texto);
-    }
-  }
-
-  article {
-    border: 1px solid var(--cor-borda);
-    border-radius: 8px;
-    padding: 15px;
-    text-align: center;
-    background-color: var(--cor-fundo);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-    &:hover {
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      transform: translateY(-5px);
-    }
-
-    figure {
-      margin-bottom: 15px;
-    }
-
-    img {
-      width: 190px;
-      height: 190px;
-      object-fit: contain;
-      margin: 0 auto;
-    }
-
-    h3 {
-      font-size: 1.1em;
-      margin-bottom: 10px;
-      min-height: 4.4em;
-      color: var(--cor-azul);
-    }
-
-    p {
-      margin-bottom: 15px;
-      font-size: 1.1em;
-
-      s {
-        font-size: 0.9em;
-        color: var(--cor-texto-claro);
-      }
-      strong {
-        font-size: 1.4em;
-        color: var(--cor-texto);
-        font-weight: 700;
-      }
-    }
-
-    button {
-      background-color: var(--cor-amarelo);
-      color: #000;
-      border: none;
-      border-radius: 50%;
-      width: 45px;
-      height: 45px;
-      font-size: 1.8em;
-      font-weight: bold;
-      line-height: 1;
-      margin: 0 auto;
-      transition: background-color 0.3s ease, transform 0.2s ease;
-
-      &:hover {
-        background-color: #e6a500;
-        transform: scale(1.1);
-      }
-      &:active {
-        transform: scale(1.0);
-      }
-    }
-  }
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
 }
 
-/* === 3. MAIN - PÁGINA DE PRODUTO === */
+main section:not(.pagina-produto) > h2 {
+  grid-column: 1 / -1;
+  border-bottom: 2px solid var(--cor-amarelo);
+  padding-bottom: 0.5rem;
+}
 
-main section:not([id]) {
+main article {
+  border: 1px solid var(--cor-borda);
+  border-radius: 5px;
+  padding: 1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+main article figure {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+main article img {
+  max-height: 100%;
+  width: auto;
+}
+
+main article p {
+  font-size: 1rem;
+  margin: 0.5rem 0;
+}
+
+main article s {
+  color: var(--cor-texto-claro);
+  font-size: 0.9rem;
+}
+
+main article strong {
+  color: var(--cor-texto);
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+main article button {
+  background-color: var(--cor-amarelo);
+  color: var(--cor-texto);
+  border: none;
+  padding: 0.75rem 1rem;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-top: 1rem;
+  width: 100%;
+}
+
+main article button:hover {
+  opacity: 0.8;
+}
+
+
+/* || PÁGINA DE PRODUTO - COM CLASSES */
+.pagina-produto {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 30px 40px;
-
-  /* Coluna 1: Imagens */
-  & > div:nth-of-type(1) figure {
-    display: grid;
-    grid-template-columns: 80px 1fr;
-    gap: 0 15px;
-
-    & > div {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-
-      img {
-        width: 80px;
-        height: 80px;
-        object-fit: contain;
-        border: 2px solid var(--cor-borda);
-        border-radius: 6px;
-        cursor: pointer;
-        transition: border-color 0.3s ease;
-
-        &:hover, &:focus {
-          border-color: var(--cor-amarelo);
-        }
-      }
-    }
-
-    & > img {
-      width: 100%;
-      border: 1px solid var(--cor-borda);
-      border-radius: 8px;
-      object-fit: contain;
-      height: auto;
-    }
-
-    figcaption {
-      grid-column: 1 / -1;
-      font-size: 0.8em;
-      color: var(--cor-texto-claro);
-      text-align: center;
-      margin-top: 10px;
-    }
-  }
-
-  /* Coluna 2: Informações */
-  & > div:nth-of-type(2) {
-    display: flex;
-    flex-direction: column;
-
-    h2 {
-      font-size: 1.8em;
-      line-height: 1.3;
-      margin-bottom: 15px;
-      color: var(--cor-texto);
-    }
-
-    a {
-      color: var(--cor-azul);
-      text-decoration: underline;
-      font-size: 0.9em;
-      margin-bottom: 25px;
-
-      &:hover {
-        color: var(--cor-amarelo);
-      }
-    }
-
-    p {
-      margin-bottom: 10px;
-
-      s {
-        font-size: 1.2em;
-        color: var(--cor-texto-claro);
-      }
-      strong {
-        font-size: 2.4em;
-        font-weight: 700;
-        color: var(--cor-texto);
-        display: block;
-      }
-    }
-
-    button {
-      background-color: var(--cor-amarelo);
-      color: #000;
-      border: none;
-      border-radius: 6px;
-      padding: 18px 25px;
-      font-size: 1.1em;
-      font-weight: bold;
-      text-transform: uppercase;
-      width: 100%;
-      transition: background-color 0.3s ease, transform 0.2s ease;
-      margin-top: 15px;
-
-      &:hover {
-        background-color: #e6a500;
-        transform: scale(1.02);
-      }
-    }
-  }
-
-  /* Linha 2: Descrição */
-  & > div:nth-of-type(3) {
-    grid-column: 1 / -1;
-    margin-top: 30px;
-    border-top: 2px solid var(--cor-borda);
-    padding-top: 30px;
-
-    h3 {
-      font-size: 1.6em;
-      margin-bottom: 15px;
-      color: var(--cor-azul);
-    }
-    p {
-      line-height: 1.7;
-      margin-bottom: 25px;
-      color: var(--cor-texto-claro);
-
-      b {
-        color: var(--cor-texto);
-        font-weight: 600;
-      }
-    }
-  }
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin: 2rem 0;
 }
 
-/* === 4. MAIN - PÁGINA DE CONTATO/FEEDBACK (NOVO) === */
+.produto-imagens {
+  width: 100%;
+}
 
-/* Como eles estão direto no <main> (sem <section>), não afetarão as outras páginas */
-main > h2 {
-  font-size: 1.8em;
-  margin-bottom: 10px;
-  border-bottom: 3px solid var(--cor-azul);
-  padding-bottom: 10px;
-  font-weight: 700;
+.produto-imagens figure {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.produto-thumbnails {
+  display: flex;
+  gap: 0.5rem;
+  order: 2;
+  flex-wrap: wrap;
+}
+
+.produto-thumbnails img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border: 2px solid var(--cor-borda);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.produto-thumbnails img:hover {
+  border-color: var(--cor-azul);
+}
+
+.produto-imagem-principal {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border: 1px solid var(--cor-borda);
+  border-radius: 4px;
+  padding: 1rem;
+  margin: 0 auto;
+  order: 1;
+}
+
+.produto-imagens figcaption {
+  font-size: 0.875rem;
+  color: var(--cor-texto-claro);
+  text-align: center;
+  margin-top: 0.5rem;
+  order: 3;
+}
+
+.produto-info {
+  width: 100%;
+}
+
+.produto-info h2 {
+  font-size: clamp(1.3rem, 4vw, 1.8rem);
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.produto-info > a {
+  display: inline-block;
   color: var(--cor-azul);
-  text-align: center;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
 }
 
-main > p {
-  text-align: center;
-  font-size: 1.1em;
-  margin-bottom: 30px;
+.produto-preco {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1.5rem 0;
+  flex-wrap: wrap;
+}
+
+.produto-preco strong {
+  font-size: clamp(1.8rem, 5vw, 2.5rem);
+  color: var(--cor-texto);
+}
+
+.produto-preco s {
+  font-size: clamp(1rem, 3vw, 1.3rem);
   color: var(--cor-texto-claro);
 }
 
-/* O <hr> no final do main */
-main > hr {
-   margin-top: 40px;
+.produto-info button {
+  background-color: var(--cor-amarelo);
+  color: var(--cor-texto);
+  border: none;
+  padding: 1rem 2rem;
+  font-weight: bold;
+  font-size: clamp(1rem, 3vw, 1.2rem);
+  cursor: pointer;
+  border-radius: 4px;
+  width: 100%;
+  max-width: 400px;
 }
 
-/* Formulário de Feedback */
-form#feedback-form {
+.produto-info button:hover {
+  opacity: 0.85;
+}
+
+.produto-descricao {
+  width: 100%;
+  border-top: 2px solid var(--cor-borda);
+  padding-top: 2rem;
+}
+
+.produto-descricao h3 {
+  margin-top: 1.5rem;
+}
+
+.produto-descricao p {
+  line-height: 1.8;
+  margin: 1rem 0;
+}
+
+.produto-descricao hr {
+  border: none;
+  border-top: 1px solid var(--cor-borda);
+  margin: 2rem 0;
+}
+
+
+/* || PÁGINA DE PRODUTO - SEM CLASSES (GENÉRICO) */
+/* Para páginas de produto que usam apenas divs sem classes */
+main > section:only-child {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+/* Primeiro div - Imagens do produto */
+main > section:only-child > div:first-child figure {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  max-width: 700px; /* Limita a largura do formulário */
-  margin: 0 auto;  /* Centraliza o formulário no <main> */
+  gap: 1rem;
+}
 
-  div {
-    display: flex;
-    flex-direction: column;
-  }
+/* Container de thumbnails */
+main > section:only-child > div:first-child figure > div:first-child {
+  display: flex;
+  gap: 0.5rem;
+  order: 2;
+  flex-wrap: wrap;
+}
 
-  label {
-    margin-bottom: 8px;
-    font-weight: 600;
-    color: var(--cor-texto);
-  }
+main > section:only-child > div:first-child figure > div:first-child img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border: 2px solid var(--cor-borda);
+  border-radius: 4px;
+  cursor: pointer;
+}
 
-  /* Estilo unificado para campos de texto */
-  input[type="text"],
-  input[type="email"],
-  input[type="tel"],
-  textarea {
-    width: 100%;
-    border: 1px solid #CCC;
-    padding: 12px 15px;
-    font-size: 1em;
-    border-radius: 6px;
-    font-family: inherit;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+main > section:only-child > div:first-child figure > div:first-child img:hover {
+  border-color: var(--cor-azul);
+}
 
-    &:focus {
-      outline: none;
-      border-color: var(--cor-azul);
-      box-shadow: 0 0 5px rgba(33, 158, 188, 0.3);
-    }
-  }
+/* Imagem principal do produto */
+main > section:only-child > div:first-child figure > img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border: 1px solid var(--cor-borda);
+  border-radius: 4px;
+  padding: 1rem;
+  margin: 0;
+  order: 1;
+}
 
-  textarea {
-    resize: vertical;
-    min-height: 150px;
-  }
+main > section:only-child > div:first-child figcaption {
+  font-size: 0.875rem;
+  color: var(--cor-texto-claro);
+  text-align: center;
+  margin-top: 0.5rem;
+  order: 3;
+}
 
-  ::placeholder {
-      color: var(--cor-texto-claro);
-      opacity: 0.8;
-  }
+/* Segundo div - Informações do produto */
+main > section:only-child > div:nth-child(2) h2 {
+  font-size: clamp(1.3rem, 4vw, 1.8rem);
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
 
-  /* Botão de Enviar */
-  button[type="submit"] {
-    background-color: var(--cor-amarelo);
-    color: #000;
-    border: none;
-    border-radius: 6px;
-    padding: 15px 25px;
-    font-size: 1.1em;
-    font-weight: bold;
-    text-transform: uppercase;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    margin-top: 10px;
-    cursor: pointer;
+main > section:only-child > div:nth-child(2) > a {
+  display: inline-block;
+  color: var(--cor-azul);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
 
-    &:hover {
-      background-color: #e6a500;
-      transform: scale(1.02);
-    }
-  }
+main > section:only-child > div:nth-child(2) > p {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1.5rem 0;
+  flex-wrap: wrap;
+}
+
+main > section:only-child > div:nth-child(2) > p strong {
+  font-size: clamp(1.8rem, 5vw, 2.5rem);
+  color: var(--cor-texto);
+}
+
+main > section:only-child > div:nth-child(2) > p s {
+  font-size: clamp(1rem, 3vw, 1.3rem);
+  color: var(--cor-texto-claro);
+}
+
+main > section:only-child > div:nth-child(2) button {
+  background-color: var(--cor-amarelo);
+  color: var(--cor-texto);
+  border: none;
+  padding: 1rem 2rem;
+  font-weight: bold;
+  font-size: clamp(1rem, 3vw, 1.2rem);
+  cursor: pointer;
+  border-radius: 4px;
+  width: 100%;
+  max-width: 400px;
+}
+
+main > section:only-child > div:nth-child(2) button:hover {
+  opacity: 0.85;
+}
+
+/* Terceiro div - Descrição do produto */
+main > section:only-child > div:nth-child(3) {
+  border-top: 2px solid var(--cor-borda);
+  padding-top: 2rem;
+}
+
+main > section:only-child > div:nth-child(3) h3 {
+  margin-top: 1.5rem;
+}
+
+main > section:only-child > div:nth-child(3) p {
+  line-height: 1.8;
+  margin: 1rem 0;
+}
+
+main > section:only-child > div:nth-child(3) hr {
+  border: none;
+  border-top: 1px solid var(--cor-borda);
+  margin: 2rem 0;
 }
 
 
-/* === 5. RODAPÉ === */
-
+/* || FOOTER */
 footer {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 30px;
-  background-color: #fcfcfc;
-  border-top: 3px solid var(--cor-azul);
-  padding-top: 40px;
-  padding-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+  border-top: 2px solid var(--cor-borda);
+  padding-top: 2rem;
+  color: var(--cor-texto-claro);
+}
 
-  & > a:first-child {
-    margin-bottom: 20px;
+footer > a:first-child {
+  flex-shrink: 0;
+}
 
-    img {
-      width: 150px;
-      margin: 0 auto;
-    }
+footer > a:first-child img {
+  width: 100%;
+  max-width: 150px;
+  margin-bottom: 1rem;
+}
+
+footer > section {
+  flex: 1 1 200px;
+  min-width: 200px;
+}
+
+footer a {
+  color: var(--cor-texto-claro);
+}
+
+footer ul li {
+  margin-bottom: 0.5rem;
+}
+
+footer > p {
+  width: 100%;
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  border-top: 1px solid var(--cor-borda);
+  padding-top: 1rem;
+}
+
+
+/* || MEDIA QUERIES - MOBILE FIRST */
+
+/* Tablets e acima (768px+) */
+@media (min-width: 768px) {
+  /* Para páginas com classes */
+  .pagina-produto {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
   }
-
-  section {
-    h4 {
-      font-size: 1.3em;
-      margin-bottom: 15px;
-      color: var(--cor-azul);
-    }
-    
-    ul li {
-      margin-bottom: 10px;
-      font-size: 0.95em;
-
-      a:hover {
-        color: var(--cor-amarelo);
-        text-decoration: underline;
-      }
-    }
+  
+  .produto-imagens {
+      grid-column: 1 / 2;
+      grid-row: 1 / 2;
   }
-
-  & > p {
-    grid-column: 1 / -1;
-    text-align: center;
-    margin-top: 30px;
-    border-top: 1px solid var(--cor-borda);
-    padding-top: 20px;
-    font-size: 0.9em;
-    color: var(--cor-texto-claro);
+  
+  .produto-info {
+      grid-column: 2 / 3;
+      grid-row: 1 / 2;
+  }
+  
+  .produto-descricao {
+      grid-column: 1 / -1;
+      grid-row: 2 / 3;
+  }
+  
+  .produto-thumbnails {
+      order: 1;
+      flex-direction: column;
+  }
+  
+  .produto-imagem-principal {
+      order: 2;
+  }
+  
+  /* Para páginas SEM classes (genérico) */
+  main > section:only-child {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+  }
+  
+  main > section:only-child > div:first-child {
+      grid-column: 1 / 2;
+      grid-row: 1 / 2;
+  }
+  
+  main > section:only-child > div:nth-child(2) {
+      grid-column: 2 / 3;
+      grid-row: 1 / 2;
+  }
+  
+  main > section:only-child > div:nth-child(3) {
+      grid-column: 1 / -1;
+      grid-row: 2 / 3;
+  }
+  
+  main > section:only-child > div:first-child figure > div:first-child {
+      order: 1;
+      flex-direction: column;
+  }
+  
+  main > section:only-child > div:first-child figure > img {
+      order: 2;
   }
 }
+
+/* Desktop (1024px+) */
+@media (min-width: 1024px) {
+  header,
+  main,
+  footer {
+      padding: 1.5rem;
+  }
+  
+  header > a:first-child img {
+      max-width: 200px;
+  }
+  
+  .produto-info button,
+  main > section:only-child > div:nth-child(2) button {
+      width: auto;
+      min-width: 300px;
+  }
+}
+
+/* ============================================== */
+/* || Início: Responsividade para Dispositivos Móveis || */
+/* ============================================== */
+
+/* Mobile (até 767px) */
+@media (max-width: 767px) {
+
+  /* --- AJUSTES DO HEADER --- */
+  header {
+    flex-direction: row; 
+    flex-wrap: wrap;
+    justify-content: center; /* Centraliza os itens no container flex */
+    align-items: center;
+    padding: 1rem; /* Adiciona um padding geral no header para dar respiro */
+  }
+
+  /* 1. Logo (Ordem 1) */
+  header > a:first-child {
+    order: 1; /* Define como o primeiro item */
+    width: 100%; /* Ocupa toda a largura para o texto/imagem poder centralizar */
+    text-align: center; /* Centraliza o conteúdo dentro do link (se for imagem, precisa de display: block) */
+    margin: 0 auto 1rem auto; /* Margem inferior para separar do próximo item */
+    display: block; /* Garante que o link se comporte como bloco para text-align funcionar na imagem */
+  }
+  
+  header > a:first-child img {
+      margin: 0 auto; /* Centraliza a imagem dentro do link */
+      display: block; /* Garante que a imagem seja um bloco para margin: auto funcionar */
+  }
+
+
+  /* 2. Ícones (Ordem 2) */
+  header > div:nth-of-type(2) {
+    order: 2; /* Define como o segundo item */
+    width: 100%; /* Ocupa toda a largura */
+    display: flex; /* Transforma em flex container para controlar os ícones */
+    justify-content: center; /* Centraliza os ícones horizontalmente */
+    padding-top: 0.5rem; /* Um pouco de padding para separar do logo */
+    border-top: 1px solid rgba(0,0,0,0.1); /* Adiciona uma linha divisória sutil */
+    gap: 1.5rem; /* Adiciona um espaço maior entre os ícones */
+  }
+
+  /* Esconde o texto dos links dos ícones */
+  header > div:nth-of-type(2) a span {
+    display: none;
+  }
+
+  /* 3. Barra de Busca (Ordem 3) */
+  header > div:nth-of-type(1) { /* CUIDADO: Este seletor pode estar incorreto. Se seu HTML for o original, esta é a barra de busca. */
+    order: 3; /* Define como o terceiro item */
+    width: 100%;
+    max-width: 100%; /* Garante que ocupe toda a largura */
+    margin-top: 1rem; /* Espaço acima da busca */
+    padding: 0 1rem; /* Padding horizontal para não colar nas bordas */
+  }
+  
+  header > div:nth-of-type(1) input { /* Ajusta o input da busca */
+      width: calc(100% - 40px); /* Ajusta a largura para caber o botão */
+      padding: 0.75rem; /* Mais padding para um campo maior */
+  }
+  header > div:nth-of-type(1) button { /* Ajusta o botão da busca */
+      width: 40px; /* Largura fixa para o botão */
+      padding: 0.75rem 0; /* Padding vertical */
+      background-color: #f0f0f0; /* Um fundo para o botão */
+      border: 1px solid #ccc; /* Uma borda para o botão */
+      border-left: none; /* Remove borda esquerda para conectar com o input */
+  }
+
+
+  /* 4. Navegação Principal (Ordem 4) */
+  header nav {
+    order: 4; /* Define como o último item */
+    width: 100%; /* Ocupa toda a largura */
+    margin-top: 1rem; /* Espaço acima do menu */
+    border-top: 1px solid rgba(0,0,0,0.1); /* Linha divisória sutil */
+    padding-top: 1rem;
+  }
+
+  header nav ul {
+    flex-direction: column; /* Empilha os itens do menu */
+    gap: 0.5rem; /* Espaço entre os itens do menu */
+  }
+
+  header nav li {
+    width: 100%;
+    text-align: center; /* Centraliza o texto do item de menu */
+  }
+
+  header nav a {
+    padding: 0.75rem;
+    display: block; /* Para que o padding e text-align funcionem no link todo */
+  }
+  
+  /* --- AJUSTES DO CONTEÚDO PRINCIPAL (MAIN) --- */
+  main {
+      padding: 0 1rem; /* Adiciona padding dos lados para centralizar o conteúdo */
+      margin: 0 auto; /* Centraliza o bloco principal */
+      max-width: 100%; /* Garante que não ultrapasse 100% */
+  }
+
+  /* Container da galeria de imagens */
+  main > section:only-child > div:first-child figure {
+    flex-direction: row; /* Alinha os itens em linha (lado a lado) */
+    align-items: flex-start; /* Alinha no topo */
+    gap: 0.75rem; /* Espaço entre as miniaturas e a imagem principal */
+  }
+
+  /* 1. Miniaturas (Thumbnails) */
+  main > section:only-child > div:first-child figure > div:first-child {
+    order: 1; /* Ordem 1 (esquerda) */
+    flex-direction: column; /* Empilha as miniaturas verticalmente */
+    flex-basis: 20%; /* Ocupa 20% da largura */
+    flex-shrink: 0; /* Não encolhe */
+  }
+
+  /* Imagens das miniaturas */
+  main > section:only-child > div:first-child figure > div:first-child img {
+    width: 100%; /* Ocupa 100% do container de 20% */
+    height: auto; /* Altura automática */
+    min-width: 50px; /* Largura mínima */
+  }
+
+  /* 2. Imagem Principal */
+  main > section:only-child > div:first-child figure > img {
+    order: 2; /* Ordem 2 (direita) */
+    flex-basis: 80%; /* Ocupa 80% da largura */
+    flex-shrink: 1; /* Permite encolher se necessário */
+    padding: 0.5rem; /* Reduz o padding interno */
+  }
+
+  /* 3. Legenda da Imagem */
+  main > section:only-child > div:first-child figcaption {
+    order: 3; /* Ordem 3 (abaixo de tudo) */
+    width: 100%; /* Ocupa toda a largura disponível */
+    text-align: center; /* Centraliza o texto da legenda */
+    margin-top: 0.5rem; /* Espaço acima da legenda */
+  }
+  
+
+  /* --- AJUSTES DO FOOTER (Rodapé) --- */
+  footer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1rem; /* Adiciona padding geral no footer */
+  }
+
+  footer > a:first-child {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem; /* Espaço abaixo do logo do footer */
+  }
+
+  footer > section {
+    width: 100%;
+    margin-bottom: 1rem; /* Espaço entre as seções do footer */
+  }
+
+  footer > section:last-of-type {
+      margin-bottom: 0; /* Remove margem da última seção */
+  }
+
+  footer p {
+      width: 100%;
+      margin-top: 1rem;
+      border-top: 1px solid rgba(0,0,0,0.1);
+      padding-top: 1rem;
+  }
+}
+/* ============================================ */
+/* || Fim: Responsividade para Dispositivos Móveis || */
+/* ============================================ */
