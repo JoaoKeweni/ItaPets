@@ -64,6 +64,17 @@ button {
   font-family: inherit;
 }
 
+/* Estilos para botões de formulário */
+.botoes-form {
+  display: flex;
+  gap: 10px;
+}
+
+.botoes-form button {
+  padding: 8px 20px;
+  font-size: 14px;
+}
+
 /* layout principal */
 header,
 main,
